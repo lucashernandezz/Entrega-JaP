@@ -12,3 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+let userMenu = document.getElementById("userMenu")
+let localuser = localStorage.getItem("usuario")
+userMenu.innerHTML += `<a class="nav-link" href="my-profile.html">${localuser}</a>`
