@@ -1,4 +1,4 @@
-let categories =  localStorage.getItem('catID')
+let categories =  localStorage.getItem('catID');
 const link = "https://japceibal.github.io/emercado-api/cats_products/" + categories + ".json";
 
 const ORDER_ASC_BY_PRICE = "1-9";
@@ -17,9 +17,15 @@ let cerrarSesion = document.getElementById('cerrarSesion')
 document.addEventListener("DOMContentLoaded", function () {
     cerrarSesion.addEventListener("click", function() {
         localStorage.removeItem("usuario");
+        localStorage.removeItem("PrimerNombre");
+        localStorage.removeItem("SegundoNombre");
+        localStorage.removeItem("PrimerApellido");
+        localStorage.removeItem("SegundoApellido");
+        localStorage.removeItem("Telefono");
     });
 });
 
+   //funcion que clasifica segun el criterio seleccionado
 function sortCategories(criteria, array){
     
     let result = [];
@@ -48,13 +54,15 @@ function sortCategories(criteria, array){
     }
 
     return result;
-}
+};
 
+   //Toma el id del producto seleccionado para dirigirnos a la pagina de dicho producto
 function setProductID(id) {
     localStorage.setItem("ProductID", id);
     window.location = "product-info.html"
 }
 
+   //Imprime los productos en base al orden de criterio
 function showProductsList(){
 
     let htmlContentToAppend = "";
@@ -92,7 +100,7 @@ function showProductsList(){
 
         lista.innerHTML = htmlContentToAppend;
     }
-}
+};
 
 
 function sortAndShowCategories(sortCriteria, categoriesArray){
